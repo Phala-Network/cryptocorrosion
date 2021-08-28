@@ -275,15 +275,15 @@ macro_rules! dispatch {
                 fn_impl($crate::x86_64::SSE2::instance(), $($arg),*)
             }
             unsafe {
-                if is_x86_feature_detected!("avx2") {
+                if $crate::is_x86_feature_detected!("avx2") {
                     impl_avx2($($arg),*)
-                } else if is_x86_feature_detected!("avx") {
+                } else if $crate::is_x86_feature_detected!("avx") {
                     impl_avx($($arg),*)
-                } else if is_x86_feature_detected!("sse4.1") {
+                } else if $crate::is_x86_feature_detected!("sse4.1") {
                     impl_sse41($($arg),*)
-                } else if is_x86_feature_detected!("ssse3") {
+                } else if $crate::is_x86_feature_detected!("ssse3") {
                     impl_ssse3($($arg),*)
-                } else if is_x86_feature_detected!("sse2") {
+                } else if $crate::is_x86_feature_detected!("sse2") {
                     impl_sse2($($arg),*)
                 } else {
                     unimplemented!()
@@ -339,9 +339,9 @@ macro_rules! dispatch_light128 {
                 fn_impl($crate::x86_64::SSE2::instance(), $($arg),*)
             }
             unsafe {
-                if is_x86_feature_detected!("avx") {
+                if $crate::is_x86_feature_detected!("avx") {
                     impl_avx($($arg),*)
-                } else if is_x86_feature_detected!("sse2") {
+                } else if $crate::is_x86_feature_detected!("sse2") {
                     impl_sse2($($arg),*)
                 } else {
                     unimplemented!()
@@ -397,9 +397,9 @@ macro_rules! dispatch_light256 {
                 fn_impl($crate::x86_64::SSE2::instance(), $($arg),*)
             }
             unsafe {
-                if is_x86_feature_detected!("avx") {
+                if $crate::is_x86_feature_detected!("avx") {
                     impl_avx($($arg),*)
-                } else if is_x86_feature_detected!("sse2") {
+                } else if $crate::is_x86_feature_detected!("sse2") {
                     impl_sse2($($arg),*)
                 } else {
                     unimplemented!()

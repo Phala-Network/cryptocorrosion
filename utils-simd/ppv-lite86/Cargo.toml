@@ -11,6 +11,10 @@ categories = ["cryptography", "no-std"]
 
 [dependencies]
 
+[dependencies.sgx_trts]
+git = "https://github.com/Phala-Network/incubator-teaclave-sgx-sdk.git"
+branch = "phala"
+
 [badges]
 travis-ci = { repository = "cryptocorrosion/cryptocorrosion" }
 
@@ -19,3 +23,4 @@ default = ["std"]
 std = []
 simd = [] # deprecated
 no_simd = [] # for weird platforms like "x86_64 without SSE2"
+phala-sgx = [] # for phala sgx env

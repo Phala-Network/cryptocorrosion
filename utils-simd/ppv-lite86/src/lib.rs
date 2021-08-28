@@ -1,4 +1,4 @@
-#![no_std]
+#[cfg_attr(not(feature = "std"), no_std)]
 
 // Design:
 // - safety: safe creation of any machine type is done only by instance methods of a
@@ -8,6 +8,13 @@
 mod soft;
 mod types;
 pub use self::types::*;
+
+#[cfg(feature = "phala-sgx")]
+pub use sgx_trts::is_x86_feature_detected;
+
+#[cfg(all(feature = "std", not(feature = "phala-sgx")))]
+pub use std::is_x86_feature_detected;
+
 
 #[cfg(all(target_arch = "x86_64", not(feature = "no_simd"), not(miri)))]
 pub mod x86_64;
