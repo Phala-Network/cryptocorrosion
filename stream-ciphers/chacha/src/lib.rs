@@ -4,6 +4,8 @@
 //!
 //! Stream-cipher usage:
 //! ```
+//! #[cfg(features = "std")]
+//! fn demo() {
 //! extern crate c2_chacha;
 //!
 //! use c2_chacha::stream_cipher::{NewStreamCipher, SyncStreamCipher, SyncStreamCipherSeek};
@@ -26,6 +28,7 @@
 //! for chunk in buffer.chunks_mut(3) {
 //!     cipher.apply_keystream(chunk);
 //! }
+//! }
 //! ```
 
 #![cfg_attr(not(feature = "std"), no_std)]
@@ -42,4 +45,6 @@ pub mod guts;
 #[cfg(feature = "rustcrypto_api")]
 mod rustcrypto_impl;
 #[cfg(feature = "rustcrypto_api")]
-pub use self::rustcrypto_impl::{stream_cipher, Ietf, ChaCha8, ChaCha12, ChaCha20, XChaCha8, XChaCha12, XChaCha20};
+pub use self::rustcrypto_impl::{
+    ChaCha12, ChaCha20, ChaCha8, Ietf, XChaCha12, XChaCha20, XChaCha8,
+};

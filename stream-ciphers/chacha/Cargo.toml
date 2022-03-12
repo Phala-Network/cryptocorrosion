@@ -1,6 +1,6 @@
 [package]
 name = "c2-chacha"
-version = "0.3.1"
+version = "0.3.3"
 authors = ["The CryptoCorrosion Contributors"]
 license = "MIT/Apache-2.0"
 edition = "2018"
@@ -12,8 +12,8 @@ readme = "README.md"
 documentation = "https://docs.rs/c2-chacha"
 
 [dependencies]
-ppv-lite86 = { package = "ppv-lite86", version = "0.2.8", default-features = false }
-cipher = { version = "0.2", optional = true }
+ppv-lite86 = { package = "ppv-lite86", version = "0.2.14", default-features = false }
+cipher = { version = "0.3", optional = true }
 
 [dev-dependencies]
 hex-literal = "0.2"
