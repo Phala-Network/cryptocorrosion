@@ -13,7 +13,7 @@ categories = ["cryptography", "no-std"]
 
 [dependencies.sgx_trts]
 git = "https://github.com/apache/teaclave-sgx-sdk.git"
-rev = "v1.1.3"
+rev = "715ee87e"
 optional = true
 
 [badges]
